@@ -41,7 +41,7 @@ VERSION = "v1.2.1-1"
 #
 # Example : MINER_URL = "http://127.0.0.1:2345/rpc/v0"
 MINER_URL = ""
-# MINER_TOKEN is the content of the ~/.lotusminer/token file
+# MINER_TOKEN is the content of the ~/lotus-miner-path/token file
 MINER_TOKEN = ""
 DAEMON_URL = ""
 DAEMON_TOKEN = ""
@@ -142,7 +142,7 @@ def main():
 
     # SET API IP PORT AND AUTH
     if MINER_URL == '':
-        with open(str(Path.home()) + "/.lotusminer/api", "r") as text_file:
+        with open(str(Path.home()) + "/lotus-miner-path/api", "r") as text_file:
             miner_api_line = text_file.read()
         miner_api = miner_api_line.split("/")
         miner_api_ip = miner_api[2]
@@ -157,7 +157,7 @@ def main():
         DAEMON_URL = "http://" + daemon_api_ip + ":" + daemon_api_port + "/rpc/v0"
 
     if MINER_TOKEN == '':
-        with open(str(Path.home()) + "/.lotusminer/token", "r") as text_file:
+        with open(str(Path.home()) + "/lotus-miner-path/token", "r") as text_file:
             MINER_TOKEN = text_file.read()
     if DAEMON_TOKEN == '':
         with open(str(Path.home()) + "/.lotus/token", "r") as text_file:
